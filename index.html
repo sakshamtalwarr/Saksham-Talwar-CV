@@ -4,275 +4,317 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saksham Talwar - CV</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #f0f2f5;
+            --paper-color: #ffffff;
+            --text-color: #333333;
+            --secondary-text: #666666;
+            --accent-blue: #4a90e2; /* Softer blue for the pill tags */
+            --tag-bg: #eef4fb;     /* Very light blue background */
+            --border-line: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000000; /* Light gray background */
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 14px;
             line-height: 1.6;
-            color: #374151; /* Dark gray text */
+            color: var(--text-color);
+            padding: 40px 0;
+            display: flex;
+            justify-content: center;
         }
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+        /* A4 Container */
+        .cv-container {
+            background-color: var(--paper-color);
+            width: 210mm;
+            min-height: 297mm;
+            padding: 40px 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
         h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1f2937; /* Darker gray for headings */
-            margin-bottom: 0.5rem;
-        }
-        h2 {
-            font-size: 1.8rem;
+            font-size: 24px;
             font-weight: 600;
-            color: #1f2937;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #e5e7eb; /* Light border for sections */
-            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            color: #222;
         }
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #374151;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
+
+        .header-sub {
+            font-size: 14px;
+            color: var(--secondary-text);
+            margin-bottom: 5px;
         }
-        p, ul {
-            margin-bottom: 1rem;
+
+        .header-contact {
+            font-size: 13px;
+            color: var(--secondary-text);
+            margin-bottom: 8px;
         }
-        ul {
-            list-style: none; /* Remove default list bullets */
-            padding-left: 0;
-        }
-        ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        ul.bullet-list li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #6b7280; /* Gray bullet */
-        }
-        ul.arrow-list li::before {
-            content: '➤'; /* Arrow bullet */
-            position: absolute;
-            left: 0;
-            color: #6b7280;
-        }
-        .contact-info a {
-            color: #3b82f6; /* Blue for links */
+
+        .header-contact a {
+            color: var(--accent-blue);
             text-decoration: none;
+            margin: 0 3px;
         }
-        .contact-info a:hover {
-            text-decoration: underline;
+
+        /* Portfolio Button */
+        .btn-portfolio {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: white !important;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 5px;
+            text-decoration: none;
+            transition: background 0.2s;
         }
-        .section-content {
-            padding-left: 1rem;
+
+        .btn-portfolio:hover {
+            background-color: #357abd;
         }
-        .project-item {
-            margin-bottom: 1.5rem;
+
+        /* SECTIONS */
+        section {
+            margin-bottom: 25px;
         }
-        .project-item p {
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
+
+        h2 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--secondary-text);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-line);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
         }
-        .skill-category {
-            margin-bottom: 1rem;
+
+        p {
+            margin-bottom: 10px;
         }
-        .skill-category ul {
+
+        ul {
+            list-style-type: disc;
+            margin-left: 18px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* EDUCATION */
+        .edu-item {
+            margin-bottom: 8px;
+        }
+        .edu-bold {
+            font-weight: 600;
+            color: #000;
+        }
+
+        /* SKILLS - PILL TAG DESIGN */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns */
+            gap: 30px;
+        }
+
+        .skill-group {
+            margin-bottom: 15px;
+        }
+
+        .skill-label {
+            display: block;
+            font-size: 13px;
+            color: var(--secondary-text);
+            margin-bottom: 8px;
+        }
+
+        .tag-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem;
+            gap: 8px;
         }
-        .skill-category ul li {
-            background-color: #e0e7ff; /* Light blue background for skills */
-            color: #4338ca; /* Darker blue text */
-            padding: 0.25rem 0.75rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding-left: 0.75rem; /* Remove extra padding from bullet-list */
-            /* Removed: transition: transform 0.2s ease-in-out; */
-        }
-        /* Removed: .skill-category ul li:hover { transform: translateY(-2px); } */
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .container {
-                margin: 1rem;
-                padding: 1rem;
+        .tag {
+            background-color: var(--tag-bg);
+            color: var(--accent-blue);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* PROJECTS */
+        .project-item {
+            margin-bottom: 15px;
+        }
+        .project-title {
+            font-weight: 600;
+            color: #000;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .project-desc {
+            font-size: 13px;
+            color: #444;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 800px) {
+            .cv-container {
+                width: 100%;
+                padding: 20px;
             }
-            h1 {
-                font-size: 2rem;
-            }
-            h2 {
-                font-size: 1.5rem;
-            }
-            h3 {
-                font-size: 1.1rem;
+            .skills-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+                gap: 10px;
             }
         }
-        /* Removed: Animation for sections */
-        /* Removed: .fade-in-section, .fade-in-section.is-visible */
     </style>
 </head>
-<body class="antialiased">
-    <div class="container">
-        <header class="text-center mb-8">
-            <h1 class="text-gray-900">SAKSHAM TALWAR</h1>
-            <p class="text-gray-600">New Delhi-110059</p>
-            <div class="contact-info text-gray-700 text-sm mt-2">
-                <p>Email: <a href="mailto:work.sakshamtalwar@gmail.com" class="text-blue-600 hover:text-blue-800">work.sakshamtalwar@gmail.com</a> | Phone: (+91) 7217739614</p>
-                <p>GitHub: <a href="https://github.com/SakshamTalwarr" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800">/SakshamTalwarr</a> | LinkedIn: <a href="https://www.linkedin.com/in/Saksham-Talwar" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800">/Saksham-Talwar</a></p>
+<body>
+
+    <div class="cv-container">
+        
+        <header>
+            <h1>SAKSHAM TALWAR</h1>
+            <div class="header-sub">Bengaluru, Karnataka</div>
+            <div class="header-contact">
+                Email: <a href="mailto:work.sakshamtalwar@gmail.com">work.sakshamtalwar@gmail.com</a> | 
+                Phone: (+91) 7217739614
             </div>
+            <div class="header-contact">
+                <a href="https://github.com/SakshamTalwarr" target="_blank">GitHub</a> | 
+                <a href="https://linkedin.com/in/Saksham-Talwar" target="_blank">LinkedIn</a>
+            </div>
+            <a href="https://SakshamTalwarr.github.io/Portfolio" target="_blank" class="btn-portfolio">Click to view Portfolio</a>
         </header>
 
         <section>
             <h2>SUMMARY</h2>
-            <div class="section-content">
-                <p class="text-gray-700">Tech enthusiast with hands-on experience in software and web development currently pursuing a Bachelor of Computer Applications, seeking opportunities to leverage and expand my expertise. Strong communicator with a collaborative spirit, eager to contribute effectively to innovative projects.</p>
-            </div>
+            <p>Passionate Computer Applications student with hands-on experience in software development, web technologies, and IoT-based solutions. Strong communicator with a collaborative mindset, eager to contribute to real-world, scalable, and user-focused software solutions.</p>
         </section>
 
         <section>
             <h2>EDUCATION</h2>
-            <div class="section-content">
-                <ul class="bullet-list">
-                    <li><strong>Graduation in Bachelor of Computer Applications</strong> (Maharishi Dayanand University, Rohtak) 2022-2025</li>
-                    <li><strong>CBSE Class XII</strong> 2022</li>
-                    <li><strong>CBSE Class X</strong> 2020</li>
-                </ul>
-            </div>
+            <ul style="list-style: none; margin-left: 0;">
+                <li class="edu-item">
+                    <span class="edu-bold">Bachelor of Computer Applications</span> (Maharishi Dayanand University, Rohtak) 2022-2025
+                </li>
+                <li class="edu-item">
+                    <span class="edu-bold">CBSE Class XII</span> 2022
+                </li>
+                <li class="edu-item">
+                    <span class="edu-bold">CBSE Class X</span> 2020
+                </li>
+            </ul>
         </section>
 
         <section>
             <h2>LANGUAGES</h2>
-            <div class="section-content">
-                <ul class="bullet-list">
-                    <li>Fluent in English, Hindi, and Punjabi</li>
-                </ul>
-            </div>
+            <ul>
+                <li>Fluent in English, Hindi, and Punjabi. Basic French.</li>
+            </ul>
         </section>
 
         <section>
             <h2>TECHNICAL SKILLS</h2>
-            <div class="section-content grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <ul class="flex flex-wrap gap-2">
-                        <li>Java</li>
-                        <li>C</li>
-                        <li>C++</li>
-                        <li>Python</li>
-                        <li>JavaScript</li>
-                        <li>HTML5</li>
-                        <li>CSS3</li>
-                    </ul>
+            <div class="skills-grid">
+                <div>
+                    <div class="skill-group">
+                        <span class="skill-label">Programming Languages</span>
+                        <div class="tag-container">
+                            <span class="tag">Java</span>
+                            <span class="tag">C++</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <span class="skill-label">Other Technologies</span>
+                        <div class="tag-container">
+                            <span class="tag">IoT (ESP32)</span>
+                            <span class="tag">Power BI</span>
+                            <span class="tag">MS Office</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Concepts</h3>
-                    <ul class="flex flex-wrap gap-2">
-                        <li>Object-Oriented Programming (OOP)</li>
-                        <li>Data Structures & Algorithms</li>
-                        <li>Exception Handling</li>
-                        <li>Software Development Life Cycle (SDLC)</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Other Technologies</h3>
-                    <ul class="flex flex-wrap gap-2">
-                        <li>IoT Development (ESP32, sensors)</li>
-                        <li>Power BI (data visualization)</li>
-                        <li>Microsoft Office Suite (Word, Excel, PowerPoint)</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Databases</h3>
-                    <ul class="flex flex-wrap gap-2">
-                        <li>SQL</li>
-                        <li>MySQL</li>
-                        <li>Database Design</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Tools & Platforms</h3>
-                    <ul class="flex flex-wrap gap-2">
-                        <li>Arduino IDE</li>
-                        <li>Visual Studio Code</li>
-                        <li>Dev-C++</li>
-                        <li>Eclipse (basic Java IDE)</li>
-                        <li>Git & GitHub (version control basics)</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Operating Systems</h3>
-                    <ul class="flex flex-wrap gap-2">
-                        <li>Windows</li>
-                        <li>Linux (basic commands)</li>
-                    </ul>
+
+                <div>
+                    <div class="skill-group">
+                        <span class="skill-label">Concepts</span>
+                        <div class="tag-container">
+                            <span class="tag">OOP</span>
+                            <span class="tag">Data Structures</span>
+                            <span class="tag">SDLC</span>
+                            <span class="tag">Exception Handling</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <span class="skill-label">Databases & Tools</span>
+                        <div class="tag-container">
+                            <span class="tag">SQL</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Git & GitHub</span>
+                            <span class="tag">VS Code</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section>
             <h2>PROFESSIONAL EXPERIENCE & PROJECTS</h2>
-            <div class="section-content">
-                <div class="project-item">
-                    <h3>IoT Soil Moisture Sensor Project</h3>
-                    <p class="text-gray-700">Designed and developed an Arduino-based system for monitoring soil moisture and automatic plant watering, resulting in a 20% reduction in water usage for plants. Utilized sensors and microcontrollers to measure soil moisture levels and automate the watering process, ensuring optimal soil conditions.</p>
-                </div>
-                <div class="project-item">
-                    <h3>Remote-Controlled Flying Plane Model</h3>
-                    <p class="text-gray-700">Engineered a functional model plane, applying principles of aerodynamics and mechanical design, leading to successful test flights covering distances up to 500 meters. Integrated lightweight materials and precise engineering techniques to optimize flight performance.</p>
-                </div>
-                <div class="project-item">
-                    <h3>Door Unlock via Blynk App</h3>
-                    <p class="text-gray-700">Developed a door lock system using ESP32, Blynk app, and RFID, enabling remote unlocking from a smartphone and manual access through RFID or a physical switch for enhanced flexibility and security.</p>
-                </div>
+            
+            <div class="project-item">
+                <span class="project-title">Grocery Inventory Management System</span>
+                <div class="project-desc">Java-based web app with JDBC and MySQL. Supports CRUD operations, admin dashboard, and CSV import/export.</div>
+            </div>
+
+            <div class="project-item">
+                <span class="project-title">Will it Rain on my Parade? (NASA Project)</span>
+                <div class="project-desc">Predictive analysis tool using Java, Python, and React. Processes historical data to generate rain probability stats.</div>
+            </div>
+
+            <div class="project-item">
+                <span class="project-title">SafeGuard India (Live Project)</span>
+                <div class="project-desc">Rapid-access safety portal for women with zero-latency interface and "Panic Mode" features.</div>
+            </div>
+
+            <div class="project-item">
+                <span class="project-title">Pet Shop Website - AbHappyPaws.com</span>
+                <div class="project-desc">Responsive multi-page website with dynamic product galleries and Google Photos integration.</div>
+            </div>
+
+            <div class="project-item">
+                <span class="project-title">IoT Soil Moisture Project (Hackathon Winner)</span>
+                <div class="project-desc">Designed and developed a smart irrigation system using Arduino/ESP32 sensors for automated watering.</div>
             </div>
         </section>
 
-        <section>
-            <h2>LEADERSHIP & VOLUNTEERING</h2>
-            <div class="section-content">
-                <ul class="bullet-list">
-                    <li><strong>Photography and Logistics Coordinator:</strong> Led photography and logistics for college festivals, coordinating a team of 10 members to cover events attended by over 300 students, ensuring smooth operations and high-quality event coverage.</li>
-                    <li><strong>Photography Club Leader:</strong> Organized workshops and exhibitions as Photography Club Leader, increasing member engagement by 20%.</li>
-                    <li><strong>Literary Club Volunteer Leader:</strong> Led literary events and debates as Literary Club Volunteer Leader, enhancing campus literary culture.</li>
-                    <li><strong>Tech Event Organizer:</strong> Organized a BGMI gaming tournament with a team of 5, engaging over 200 participants and enhancing event coordination skills.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>EXTRACURRICULAR & CERTIFICATIONS</h2>
-            <div class="section-content">
-                <ul class="arrow-list">
-                    <li><strong>J.P. Morgan Software Engineering Virtual Experience on Forage -</strong> July 2024</li>
-                    <li><strong>Walmart USA Advanced Software Engineering Virtual Experience Program on Forage -</strong> July 2024</li>
-                    <li><strong>IoT Soil Moisture Sensor Project (Hackathon Winner, SGTU University, Gurugram) -</strong> February 2024</li>
-                    <li><strong>Certificate in Excel Proficiency & Analytics (CEPA) - Anudip Foundation & DPGITM -</strong> September 2024</li>
-                    <li><strong>Fundamentals of Java Core & Web Programming - Anudip Foundation -</strong> (In Progress)</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>HOBBIES</h2>
-            <div class="section-content">
-                <p class="text-gray-700">Engaging in Technology Projects, Web Development, Photography, Moto rides, and singing.</p>
-            </div>
-        </section>
     </div>
+
 </body>
 </html>
